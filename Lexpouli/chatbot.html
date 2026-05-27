@@ -1,0 +1,888 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LexPopuli </title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+            .chat-bubble {
+                animation: fadeIn 0.3s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .typing-indicator {
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                background-color: #9ca3af;
+                border-radius: 50%;
+                animation: typing 1.4s infinite ease-in-out;
+                margin: 0 2px;
+            }
+            .typing-indicator:nth-child(1) {
+                animation-delay: 0s;
+            }
+            .typing-indicator:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+            .typing-indicator:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+            @keyframes typing {
+                0%, 60%, 100% {
+                    transform: translateY(0);
+                }
+                30% {
+                    transform: translateY(-5px);
+                }
+            }
+            .law-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .law-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body class="bg-gray-50">
+        <!-- Header -->
+        <header class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight text-slate-900">LexPopuli</span>
+                    </div>
+                    <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-slate-600 hover:text-brand-600 font-medium transition">Home</a>
+                    <a href="#" class="text-slate-600 hover:text-brand-600 font-medium transition">Chatbot</a>
+                    <a href="rights.html" class="text-slate-600 hover:text-brand-600 font-medium transition">Legal Rights</a>
+                    <a href="#" class="text-slate-600 hover:text-brand-600 font-medium transition">Resources</a>
+                    <a href="document.html" class="text-slate-600 hover:text-brand-600 font-medium transition">Document Simplifier</a>
+                </div>
+                    
+                    <button class="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="bg-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        AI-Powered Legal Guidance<br>
+                        <span class="text-indigo-600">Anytime, Anywhere</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                        Get instant legal information and guidance from our intelligent legal assistant.
+                        Understand your rights, learn about laws, and get help with legal procedures.
+                    </p>
+                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">How LexPopuli Helps You</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Our AI-powered legal assistant provides accurate information about laws, rights, and legal procedures.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl p-8 shadow-sm law-card">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Legal Information</h3>
+                        <p class="text-gray-600">
+                            Get accurate information about laws, regulations, and legal procedures in simple language.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 shadow-sm law-card">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Rights Awareness</h3>
+                        <p class="text-gray-600">
+                            Learn about your rights as a citizen, employee, consumer, or tenant in various situations.
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 shadow-sm law-card">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Procedure Guidance</h3>
+                        <p class="text-gray-600">
+                            Get step-by-step guidance on legal procedures like filing complaints, applications, or appeals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Legal Topics -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Common Legal Topics</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Explore these common legal areas where people often need guidance.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-indigo-50 rounded-xl p-6 law-card">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Consumer Rights</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Learn about your rights as a consumer, how to file complaints, and get refunds.
+                        </p>
+                        <button class="text-indigo-600 font-medium hover:text-indigo-700 text-sm">
+                            Learn More →
+                        </button>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-6 law-card">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Employment Laws</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Understand labor laws, workplace rights, and how to address workplace issues.
+                        </p>
+                        <button class="text-indigo-600 font-medium hover:text-indigo-700 text-sm">
+                            Learn More →
+                        </button>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-6 law-card">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Cyber Laws</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Know about digital rights, online fraud, cyberbullying, and data protection laws.
+                        </p>
+                        <button class="text-indigo-600 font-medium hover:text-indigo-700 text-sm">
+                            Learn More →
+                        </button>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-6 law-card">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Family Laws</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Information about marriage, divorce, child custody, and inheritance laws.
+                        </p>
+                        <button class="text-indigo-600 font-medium hover:text-indigo-700 text-sm">
+                            Learn More →
+                        </button>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-6 law-card">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Legal Documents</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Get guidance on creating and understanding legal documents and contracts.
+                        </p>
+                        <button class="text-indigo-600 font-medium hover:text-indigo-700 text-sm">
+                            Learn More →
+                        </button>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-6 law-card">
+                        <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Criminal Laws</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Understand criminal procedures, bail processes, and your rights if accused.
+                        </p>
+                        <button class="text-indigo-600 font-medium hover:text-indigo-700 text-sm">
+                            Learn More →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Interface Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Try LexPopuli Now</h2>
+                    <p class="text-xl text-gray-600">
+                        Ask our AI legal assistant about any legal topic or situation.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="bg-indigo-600 p-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                            </div>
+                            <span class="ml-3 text-white font-medium">LexPopuli Assistant</span>
+                        </div>
+                    </div>
+                    <div class="p-6 h-96 overflow-y-auto" id="chat-container">
+                        <div class="space-y-4">
+                            <div class="flex justify-start">
+    
+    <div class="bg-gray-100 rounded-lg p-4 max-w-lg">
+
+        <p>Hello! I'm your <strong>LexPopuli assistant</strong>. How can I help you with legal information today?</p>
+
+        <p class="mt-2">You can ask about:</p>
+
+        <ul class="list-disc ml-6 mt-2">
+            <li>Your rights in different situations</li>
+            <li>Legal procedures and steps</li>
+            <li>Information about specific laws</li>
+            <li>Guidance on legal documents</li>
+        </ul>
+
+        <!-- CLICKABLE QUESTIONS -->
+        <div class="mt-4">
+
+            <p class="font-semibold text-indigo-700 mb-2">💬 Try asking:</p>
+
+            <div class="space-y-2">
+
+                <div onclick="sendSuggestedQuestion(this)"
+                class="cursor-pointer bg-white border rounded-md px-3 py-2 hover:bg-indigo-50">
+                Someone hacked my Instagram account
+                </div>
+
+                <div onclick="sendSuggestedQuestion(this)"
+                class="cursor-pointer bg-white border rounded-md px-3 py-2 hover:bg-indigo-50">
+                I lost money in a UPI scam
+                </div>
+
+                <div onclick="sendSuggestedQuestion(this)"
+                class="cursor-pointer bg-white border rounded-md px-3 py-2 hover:bg-indigo-50">
+                How do I report cybercrime in India?
+                </div>
+
+                <div onclick="sendSuggestedQuestion(this)"
+                class="cursor-pointer bg-white border rounded-md px-3 py-2 hover:bg-indigo-50">
+                Someone created a fake profile using my photo
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-gray-200">
+                        <div class="flex items-center space-x-2">
+                            <input type="text" id="user-input"
+                                placeholder="Ask about laws, rights, or legal procedures..."
+                                class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <button id="send-button" class="p-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2 text-center">
+                            LexPopuli provides information only. For legal advice, consult a qualified attorney.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- REPLACE the entire <script> section with this updated version -->
+
+    <script>
+                    function sendSuggestedQuestion(element) {
+
+            const question = element.innerText;
+
+            userInput.value = question;
+
+            handleSendMessage();
+
+            }
+        // Chat functionality
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        // 🚨 COMPREHENSIVE CYBERCRIME + LEGAL RESPONSES
+        const legalResponses = {
+            // CYBERCRIME SPECIALIZED RESPONSES
+            "hacking": {
+                response: "HACKING - Section 66, IT Act 2000 (Computer Related Offences)\n\n" +
+                        "IPC Support Sections:\n" +
+                        "• Section 441 IPC - Criminal trespass (digital intrusion)\n" +
+                        "• Section 420 IPC - Cheating and dishonestly inducing delivery\n\n" +
+                        "Punishment: 3 years OR ₹5 lakh fine OR both\n\n" +
+                        "📋 REQUIRED LEGAL DOCUMENTS:\n" +
+                        "1. FIR - Under Section 154 CrPC (Zero FIR format)\n" +
+                        "2. Cybercrime Complaint - National Cybercrime Portal\n" +
+                        "3. Evidence Affidavit - Notarized screenshots + logs\n" +
+                        "4. Indemnity Bond - For account recovery (bank format)\n\n" +
+                        "✅ STEPS WITH DOCUMENTS:\n" +
+                        "1. Collect evidence → Notarize screenshots (Section 3 Evidence Act)\n" +
+                        "2. File Zero FIR → Get FIR copy signed by SHO\n" +
+                        "3. Submit cybercrime.gov.in → Download Complaint Acknowledgment\n" +
+                        "4. Bank recovery → Submit Indemnity Bond + FIR",
+                followup: "Need **FIR format** or **affidavit template** for hacking case?"
+            },
+            
+            "online fraud": {
+                response: "ONLINE FRAUD - Section 66D IT Act + Section 420 IPC\n\n" +
+                        "Key Legal Sections:\n" +
+                        "• Section 420 IPC - Cheating and dishonestly inducing delivery\n" +
+                        "• Section 415 IPC - Cheating definition\n" +
+                        "• Section 468 IPC - Forgery for cheating\n\n" +
+                        "Punishment: 7 years RI + fine\n\n" +
+                        "📋 LEGAL DOCUMENTS CHECKLIST:\n" +
+                        "1. Bank Statement - Transaction proof\n" +
+                        "2. FIR - Section 154 CrPC format\n" +
+                        "3. Transaction Details - UPI reference + timestamp\n" +
+                        "4. Police Complaint - Section 66A CrPC cybercrime\n" +
+                        "5. Affidavit - Loss amount declaration\n\n" +
+                        "✅ STEP-BY-STEP WITH DOCUMENTS:\n" +
+                        "1. Call bank → Get transaction dispute letter\n" +
+                        "2. File FIR → Section 154 CrPC (attach bank stmt)\n" +
+                        "3. Cyber portal → Upload FIR + transaction proof\n" +
+                        "4. Notary → Loss affidavit for insurance claim",
+                followup: "Need bank dispute letter template or FIR format?"
+            },
+            
+            "cyberbullying": {
+                response: "CYBERBULLYING - Section 67 IT Act + IPC Sections\n\n" +
+                        "Legal Provisions:\n" +
+                        "• Section 509 IPC - Insult to modesty of woman\n" +
+                        "• Section 354A IPC - Sexual harassment\n" +
+                        "• Section 294 IPC - Obscene acts in public view\n" +
+                        "• Section 507 IPC - Criminal intimidation (anonymous)\n\n" +
+                        "Punishment: Up to 3 years + fine\n\n" +
+                        "📋 LEGAL DOCUMENTS REQUIRED:\n" +
+                        "1. Complaint to Platform - Section 79 IT Rules 2021\n" +
+                        "2. FIR - Section 154 CrPC\n" +
+                        "3. Evidence Compilation - Screenshots with metadata\n" +
+                        "4. Public Servant Complaint - Section 156(3) CrPC\n" +
+                        "5. Magistrate Application - Section 156(3) format\n\n" +
+                        "✅ ACTION WITH DOCUMENTS:\n" +
+                        "1. Platform complaint → Get acknowledgment email\n" +
+                        "2. Screenshot + notarize → Evidence under Section 65B Evidence Act\n" +
+                        "3. Police station → File FIR + get signed copy\n" +
+                        "4. No action? → 156(3) CrPC Magistrate application",
+                followup: "Section 65B certificate needed for screenshots?"
+            },
+            
+            "data theft": {
+                response: "DATA THEFT - Section 43/66 IT Act + IPC Property Offences\n\n" +
+                        "Legal Sections:\n" +
+                        "• Section 43 IT Act - Unauthorized data access penalty\n" +
+                        "• Section 66 IT Act - Computer offences\n" +
+                        "• Section 378 IPC - Theft definition\n" +
+                        "• Section 405 IPC - Criminal breach of trust\n\n" +
+                        "Punishment: ₹1 crore compensation + 3-5 years\n\n" +
+                        "📋 LEGAL DOCUMENTS:\n" +
+                        "1. Legal Notice - Section 43 IT Act demand notice\n" +
+                        "2. FIR - Section 154 CrPC\n" +
+                        "3. CERT-In Report - Mandatory breach notification\n" +
+                        "4. Data Access Logs - Timestamp evidence\n" +
+                        "5. Civil Suit - Section 43A IT Rules compensation\n\n" +
+                        "✅ PROCEDURE:\n" +
+                        "1. Send Legal Notice → 15 days response time\n" +
+                        "2. CERT-In notification → Get acknowledgment\n" +
+                        "3. FIR + cyber cell → Investigation request\n" +
+                        "4. Civil court → Compensation suit",
+                followup: "Legal notice format or CERT-In template needed?"
+            },
+            
+            "identity theft": {
+                response: "IDENTITY THEFT - Section 66C IT Act + IPC Personation\n\n" +
+                        "Legal Framework:\n" +
+                        "• Section 66C IT Act - Fraudulent use of e-signature\n" +
+                        "• Section 419 IPC - Cheating by personation\n" +
+                        "• Section 468 IPC - Forgery for cheating\n" +
+                        "• Section 471 IPC - Using forged document\n\n" +
+                        "Punishment: 3 years + ₹1 lakh fine\n\n" +
+                        "📋 CRITICAL DOCUMENTS:\n" +
+                        "1. FIR - Section 154 CrPC**\n" +
+                        "2. UIDAI Complaint - Aadhaar misuse format\n" +
+                        "3. CIBIL Dispute - Fraudulent loan removal\n" +
+                        "4. Bank NOC - Account freeze confirmation\n" +
+                        "5. Police Verification - Identity proof consolidation\n\n" +
+                        "✅ IMMEDIATE STEPS:\n" +
+                        "1. Freeze accounts → Get bank NOC\n" +
+                        "2. UIDAI portal → Aadhaar misuse complaint\n" +
+                        "3. FIR → Zero FIR format\n" +
+                        "4. CIBIL → Fraud dispute letter",
+                followup: "UIDAI complaint format or CIBIL dispute template?"
+            },
+            
+            "child pornography": {
+                response: "CHILD PORNOGRAPHY - Section 67B IT Act + POCSO Act\n\n" +
+                        "Legal Sections:\n" +
+                        "• Section 67B IT Act - Child porn transmission\n" +
+                        "• Section 15 POCSO - Storage of CSAM\n" +
+                        "• Section 292 IPC - Obscene material distribution\n" +
+                        "• Section 354C IPC - Voyeurism\n\n" +
+                        "Punishment: 5-10 years RI + fine\n\n" +
+                        "📋 MANDATORY DOCUMENTS:\n" +
+                        "1. FIR - Section 154 CrPC (POCSO case)\n" +
+                        "2. Cybercrime Report - National portal\n" +
+                        "3. NCPCR Complaint - Child commission\n" +
+                        "4. PlatformTakedown - Section 79 IT Rules\n" +
+                        "5. Section 65B Certificate - Electronic evidence\n\n" +
+                        "⚠️ CRITICAL:\n" +
+                        "1. DO NOT forward → Preserve URL only\n" +
+                        "2. Immediate FIR → Child Welfare Committee copy\n" +
+                        "3. Helpline 1098 → Document everything",
+                followup: "POCSO FIR format or Section 65B certificate?"
+            },
+            
+            "report cybercrime": {
+                response: "REPORT CYBERCRIME - Section 66A CrPC + IT Act Procedures\n\n" +
+                        "Legal Framework:\n" +
+                        "• Section 154 CrPC - FIR registration\n" +
+                        "• Section 156(3) CrPC - Magistrate direction\n" +
+                        "• Section 65B Evidence Act - Electronic evidence\n" +
+                        "• IT Rules 2021 - Platform complaints\n\n" +
+                        "📋 COMPLETE DOCUMENT CHECKLIST:\n" +
+                        "1. FIR Application → Section 154 format\n" +
+                        "2. Evidence List → Section 65B certificate\n" +
+                        "3. Cybercrime Portal → Acknowledgment receipt\n" +
+                        "4. Identity Proof → Aadhaar/PAN\n" +
+                        "5. Transaction Records → Bank/UPI statements\n\n" +
+                        "✅ PERFECT FILING PROCESS:\n" +
+                        "1. Prepare documents → Notary certification\n" +
+                        "2. Online portal  → cybercrime.gov.in\n" +
+                        "3. Physical FIR → Zero FIR copy\n" +
+                        "4. Follow-up → 156(3) if no action",
+                followup: "Need exact FIR format or 65B certificate template?"
+            },
+
+            // ORIGINAL LEGAL CATEGORIES (Enhanced)
+            "consumer rights": {
+                response: "CONSUMER RIGHTS - CPA 2019\n\n" +
+                        "6 Key Rights:\n" +
+                        "1. Right to Safety (Sec 2(1)(i))\n" +
+                        "2. Right to Information (Sec 2(1)(j))\n" +
+                        "3. Right to Choose (Sec 2(1)(k))\n" +
+                        "4. Right to Redress (Sec 35)\n" +
+                        "📋 File: District Consumer Forum\n\n" +
+                        "Documents: Invoice + Defect proof + Affidavit",
+                followup: "Need consumer complaint format?"
+            },
+
+            "employment laws": {
+                response: "EMPLOYMENT LAWS - Factories Act + IDA 1947\n\n" +
+                        "Key Provisions:\n" +
+                        "1. Minimum Wage (Sec 3 MWA)\n" +
+                        "2. Working Hours (Sec 51 Factories Act): 48 hrs/week\n" +
+                        "3. Termination (Sec 25F IDA): 1 month notice\n" +
+                        "4. PF (Sec 6 EPF Act): 12% contribution\n\n" +
+                        "📋 File: Labor Court\nDocuments: Appt letter + Salary slips",
+                followup: "Termination or wage dispute?"
+            },
+
+            "family laws": {
+                response: "FAMILY LAWS - HMA 1955 + DV Act\n\n" +
+                        "Key Areas:\n" +
+                        "1. Divorce (Sec 13 HMA): 6 months cooling\n" +
+                        "2. Maintenance (Sec 125 CrPC)\n" +
+                        "3. Child Custody (Sec 6 Guardians Act)\n" +
+                        "📋 File: Family Court\nDocuments: Marriage cert + Affidavit",
+                followup: "Divorce, maintenance, or custody issue?"
+            },
+
+            "criminal laws": {
+                response: "CRIMINAL LAWS - IPC + CrPC\n\n" +
+                        "Key Rights:\n" +
+                        "1. Right to Silence (Art 20(3))\n" +
+                        "2. FIR Mandatory (Sec 154 CrPC)\n" +
+                        "3. Bail Rights (Sec 436 CrPC)\n" +
+                        "🚨 If Arrested: Demand lawyer + family contact",
+                followup: "Arrest, bail, or FIR procedure?"
+            },
+
+            // PUNISHMENT SUMMARY
+            "punishment": {
+                response: "🚨 CYBERCRIME PUNISHMENTS\n\n" +
+                        "🔴 Sec 66 IT Act Hacking: 3 yrs/₹5L\n" +
+                        "💰 Sec 420 IPC Fraud: 7 yrs RI\n" +
+                        "👤 Sec 66C IT Act Identity: 3 yrs/₹1L\n" +
+                        "📱 Sec 509 IPC Bullying: 3 yrs SI\n" +
+                        "📊 Sec 43 IT Act Data Theft: ₹1 Cr compensation\n\n" +
+                        "⚠️ Non-bailable: Damage > ₹1L",
+                followup: "Specific punishment details?"
+            },
+
+            // UNIVERSAL DEFAULT
+            "default": {
+                response: "🔥 LexPopuli - What you can ask:\n\n" +
+                        "CYBERCRIMES:\n" +
+                        "• hacking → Sec 66 IT Act\n" +
+                        "• online fraud → Sec 420 IPC\n" +
+                        "• cyberbullying → Sec 509 IPC\n" +
+                        "• report cybercrime → FIR process\n\n" +
+                        "OTHER:\n" +
+                        "• consumer rights\n" +
+                        "• employment laws\n" +
+                        "• family laws\n\n" +
+                        "🚨 Emergency: Dial 1930\n" +
+                        "Portal: cybercrime.gov.in",
+                followup: "Try: 'hacking', 'fraud', 'report cybercrime'?"
+            }
+        };
+
+        // 🧠 SMART KEYWORD MATCHING
+  function getLegalResponse(query) {
+    const lowerQuery = query.toLowerCase().trim();
+
+    // 🔐 HACKING KEYWORDS
+    if (
+        lowerQuery.includes('hack') ||
+        lowerQuery.includes('hacked') ||
+        lowerQuery.includes('account hacked') ||
+        lowerQuery.includes('instagram hacked') ||
+        lowerQuery.includes('whatsapp hacked') ||
+        lowerQuery.includes('gmail hacked') ||
+        lowerQuery.includes('password stolen') ||
+        lowerQuery.includes('security breach') ||
+        lowerQuery.includes('unauthorized access')
+    ) {
+        return legalResponses["hacking"];
+    }
+
+    // 💰 ONLINE FRAUD KEYWORDS
+    if (
+        lowerQuery.includes('fraud') ||
+        lowerQuery.includes('scam') ||
+        lowerQuery.includes('upi fraud') ||
+        lowerQuery.includes('upi scam') ||
+        lowerQuery.includes('online scam') ||
+        lowerQuery.includes('transaction fraud') ||
+        lowerQuery.includes('bank fraud') ||
+        lowerQuery.includes('otp scam') ||
+        lowerQuery.includes('money stolen') ||
+        lowerQuery.includes('fake website') ||
+        lowerQuery.includes('payment scam')
+    ) {
+        return legalResponses["online fraud"];
+    }
+
+    // 📱 CYBERBULLYING KEYWORDS
+    if (
+        lowerQuery.includes('bullying') ||
+        lowerQuery.includes('cyberbullying') ||
+        lowerQuery.includes('harassment') ||
+        lowerQuery.includes('online harassment') ||
+        lowerQuery.includes('trolling') ||
+        lowerQuery.includes('threat') ||
+        lowerQuery.includes('abuse online') ||
+        lowerQuery.includes('instagram harassment')
+    ) {
+        return legalResponses["cyberbullying"];
+    }
+
+    // 📂 DATA THEFT KEYWORDS
+    if (
+        lowerQuery.includes('data') ||
+        lowerQuery.includes('data theft') ||
+        lowerQuery.includes('data leak') ||
+        lowerQuery.includes('database leak') ||
+        lowerQuery.includes('information stolen') ||
+        lowerQuery.includes('company data stolen') ||
+        lowerQuery.includes('data breach')
+    ) {
+        return legalResponses["data theft"];
+    }
+
+    // 🆔 IDENTITY THEFT KEYWORDS
+if (
+    lowerQuery.includes('identity theft') ||
+    lowerQuery.includes('fake profile') ||
+    lowerQuery.includes('fake account') ||
+    lowerQuery.includes('impersonation') ||
+    lowerQuery.includes('someone using my photo') ||
+    lowerQuery.includes('pan card ') ||
+    lowerQuery.includes('aadhaar misuse') ||
+    lowerQuery.includes('aadhar misuse') ||
+    lowerQuery.includes('aadhaar card misuse') ||
+    lowerQuery.includes('aadhaar details leaked') ||
+    lowerQuery.includes('someone used my aadhaar') ||
+    lowerQuery.includes('my aadhaar misused')
+) {
+    return legalResponses["identity theft"];
+}
+
+    // 🚨 REPORT CYBERCRIME
+    if (
+        lowerQuery.includes('report cybercrime') ||
+        lowerQuery.includes('file fir') ||
+        lowerQuery.includes('cyber complaint') ||
+        lowerQuery.includes('report online fraud') ||
+        lowerQuery.includes('how to report hacking') ||
+        lowerQuery.includes('cyber police complaint')
+    ) {
+        return legalResponses["report cybercrime"];
+    }
+
+    // ⚖ CONSUMER RIGHTS
+    if (
+        lowerQuery.includes('consumer') ||
+        lowerQuery.includes('refund') ||
+        lowerQuery.includes('defective product') ||
+        lowerQuery.includes('online shopping issue') ||
+        lowerQuery.includes('seller refused refund')
+    ) {
+        return legalResponses["consumer rights"];
+    }
+
+    // 👨‍💼 EMPLOYMENT LAW
+    if (
+        lowerQuery.includes('salary') ||
+        lowerQuery.includes('employment') ||
+        lowerQuery.includes('job') ||
+        lowerQuery.includes('termination') ||
+        lowerQuery.includes('company not paying')
+    ) {
+        return legalResponses["employment laws"];
+    }
+
+    // 👨‍👩‍👧 FAMILY LAW
+    if (
+        lowerQuery.includes('divorce') ||
+        lowerQuery.includes('marriage') ||
+        lowerQuery.includes('maintenance') ||
+        lowerQuery.includes('child custody') ||
+        lowerQuery.includes('domestic violence')
+    ) {
+        return legalResponses["family laws"];
+    }
+
+    // 🚓 CRIMINAL LAW
+    if (
+        lowerQuery.includes('arrest') ||
+        lowerQuery.includes('bail') ||
+        lowerQuery.includes('police complaint') ||
+        lowerQuery.includes('fir') ||
+        lowerQuery.includes('criminal case')
+    ) {
+        return legalResponses["criminal laws"];
+    }
+
+    // ⚠ PUNISHMENT
+    if (
+        lowerQuery.includes('punishment') ||
+        lowerQuery.includes('fine') ||
+        lowerQuery.includes('jail') ||
+        lowerQuery.includes('penalty')
+    ) {
+        return legalResponses["punishment"];
+    }
+
+    return legalResponses["default"];
+}
+
+        // Message functions (unchanged)
+        function addMessage(sender, message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'}`;
+
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = `chat-bubble rounded-lg p-4 max-w-3/4 ${isUser ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-700'}`;
+            bubbleDiv.innerHTML = message.replace(/\n/g, '<br>');
+
+            messageDiv.appendChild(bubbleDiv);
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'flex justify-start';
+            typingDiv.id = 'typing-indicator';
+
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'bg-gray-100 rounded-lg p-3 max-w-3/4';
+
+            const indicatorDiv = document.createElement('div');
+            indicatorDiv.className = 'flex space-x-1';
+            indicatorDiv.innerHTML = '<div class="typing-indicator"></div><div class="typing-indicator"></div><div class="typing-indicator"></div>';
+
+            bubbleDiv.appendChild(indicatorDiv);
+            typingDiv.appendChild(bubbleDiv);
+            chatContainer.appendChild(typingDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            return typingDiv;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function handleSendMessage() {
+            const message = userInput.value.trim();
+            if (message === '') return;
+
+            addMessage('You', message, true);
+            userInput.value = '';
+
+            const typingIndicator = showTypingIndicator();
+
+            setTimeout(() => {
+                removeTypingIndicator();
+                const response = getLegalResponse(message);
+                addMessage('LexPopuli', response.response);
+
+                if (response.followup) {
+                    setTimeout(() => {
+                        addMessage('LexPopuli', response.followup);
+                    }, 1000);
+                }
+            }, 1500);
+        }
+
+        // Event listeners (unchanged)
+        sendButton.addEventListener('click', handleSendMessage);
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSendMessage();
+            }
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = button.querySelector('svg');
+
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    answer.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Disclaimer modal (unchanged)
+        const disclaimerModal = document.getElementById('disclaimer-modal');
+        const acceptDisclaimer = document.getElementById('accept-disclaimer');
+        const closeDisclaimer = document.getElementById('close-disclaimer');
+
+        if (!localStorage.getItem('LexPopuliDisclaimerAccepted')) {
+            disclaimerModal.classList.remove('hidden');
+        }
+
+        acceptDisclaimer.addEventListener('click', () => {
+            disclaimerModal.classList.add('hidden');
+            localStorage.setItem('LexPopuliDisclaimerAccepted', 'true');
+        });
+
+        closeDisclaimer.addEventListener('click', () => {
+            disclaimerModal.classList.add('hidden');
+        });
+
+                // ⭐ SMART CLICKABLE SAMPLE QUESTIONS
+        const cybercrimeQuestions = [
+            "Someone hacked my Instagram account",
+            "I lost money in a UPI scam",
+            "How do I report cybercrime in India?",
+            "Someone created a fake profile using my photo",
+            "I am facing cyberbullying on social media",
+            "My bank account was used for fraud",
+            "I received a defective product online",
+            "My employer has not paid my salary"
+        ];
+
+        setTimeout(() => {
+            const sampleDiv = document.createElement('div');
+            sampleDiv.className = 'flex justify-start mt-4';
+
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'bg-indigo-50 border-2 border-indigo-200 rounded-xl p-6 max-w-3/4';
+
+            const title = document.createElement('p');
+            title.className = 'font-bold text-indigo-900 mb-4 text-lg';
+            title.innerHTML = '💬 <strong>Try asking:</strong>';
+
+            bubbleDiv.appendChild(title);
+
+            cybercrimeQuestions.forEach(question => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'cyber-question bg-white border border-gray-200 rounded-lg p-3 mb-3 cursor-pointer hover:bg-indigo-50 hover:border-indigo-300 transition-all hover:shadow-md';
+                questionDiv.innerHTML = `<span class="font-medium text-gray-800">${question}</span>`;
+
+                questionDiv.addEventListener('click', () => {
+                    userInput.value = question;
+                    handleSendMessage();
+                });
+
+                bubbleDiv.appendChild(questionDiv);
+            });
+
+            sampleDiv.appendChild(bubbleDiv);
+            chatContainer.appendChild(sampleDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }, 1500);
+    </script>
+    </body>
+    </html>
+    
